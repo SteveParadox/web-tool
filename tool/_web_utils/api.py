@@ -59,6 +59,10 @@ def extract_api_info(comments):
 
     return endpoints
 
+@web_tool.route('/')
+def home():
+    return render_template("home.html")
+
 # Route to handle the form submission
 @web_tool.route('/generate', methods=['POST'])
 def generate():
