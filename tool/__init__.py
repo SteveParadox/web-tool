@@ -2,6 +2,8 @@
 from jinja2 import Template
 import datetime
 from flask import Flask
+from .config import Config
+
 
 app = Flask(__name__)
 
