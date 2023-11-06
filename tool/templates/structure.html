@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ endpoint.route }} - API Documentation</title>
+</head>
+<body>
+    <h1>{{ endpoint.route }}</h1>
+    <p>{{ endpoint.description }}</p>
+
+    <h2>Supported Methods:</h2>
+    <ul>
+        {% for method in endpoint.methods %}
+            <li>{{ method }}</li>
+        {% endfor %}
+    </ul>
+
+    <!-- Add more sections for request parameters, response structures, etc. -->
+</body>
+</html>

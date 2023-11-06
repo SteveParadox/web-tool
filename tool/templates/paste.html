@@ -1,0 +1,32 @@
+<!-- form.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>API Documentation Generator</h1>
+    <form method="post" action="/generate">
+        <label for="api_code">Paste your Flask API code:</label>
+        <textarea id="api_code" name="api_code" rows="10" cols="50" placeholder="Insert your Flask API code here" required></textarea>
+        
+        <label for="comments">Comments or Annotations (if any):</label>
+        <textarea id="comments" name="comments" rows="5" cols="50" placeholder="Add comments or annotations"></textarea>
+        
+        <label for="project_name">Project Name:</label>
+        <input type="text" id="project_name" name="project_name" placeholder="Your API Project Name">
+        
+        <label for="author">Author:</label>
+        <input type="text" id="author" name="author" placeholder="Author's Name">
+        
+        <label for "email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Author's Email">
+        
+        <label for="version">API Version:</label>
+        <input type="text" id="version" name="version" placeholder="API Version">
+        
+        <button type="submit">Generate Documentation</button>
+    </form>
+</body>
+</html>

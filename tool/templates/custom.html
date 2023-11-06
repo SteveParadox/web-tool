@@ -1,0 +1,49 @@
+<!-- documentation.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>API Documentation</title>
+</head>
+<body>
+    <h1>API Documentation</h1>
+
+    <!-- Search Feature -->
+    <input type="text" id="search" placeholder="Search endpoints">
+    <button onclick="searchEndpoints()">Search</button>
+
+    <!-- Search Results Container -->
+    <div id="search-results"></div>
+
+    <!-- Documentation for each endpoint -->
+    {% for endpoint in endpoints %}
+    <div class="endpoint">
+        <h2>{{ endpoint.route }}</h2>
+        <p>Description: {{ endpoint.description }}</p>
+        <!-- Other endpoint details... -->
+        <hr>
+    </div>
+    {% endfor %>
+
+    <script>
+        function searchEndpoints() {
+            const searchQuery = document.getElementById('search').value.toLowerCase();
+            const searchResultsContainer = document.getElementById('search-results');
+            searchResultsContainer.innerHTML = '';
+
+            {% for endpoint in endpoints %}
+            const route = "{{ endpoint.route }}".toLowerCase();
+            const description = "{{ endpoint.description }}".toLowerCase();
+
+            if (route.includes(searchQuery) || description.includes(searchQuery)) {
+                const resultElement = document.createElement('div');
+                resultElement.className = 'search-result';
+                resultElement.innerHTML = `<h2>{{ endpoint.route }}</h2><p>Description: {{ endpoint.description }}</p>`;
+                // Add other endpoint details...
+                searchResultsContainer.appendChild(resultElement);
+            }
+            {% endfor %}
+        }
+    </script>
+</body>
+</html>
